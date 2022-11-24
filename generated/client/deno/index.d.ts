@@ -13,10 +13,10 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
 
 
 /**
- * Model User
+ * Model user
  * 
  */
-export type User = {
+export type user = {
   id: number
   first_name: string
   last_name: string
@@ -164,14 +164,14 @@ export class PrismaClient<
   $transaction<P extends PrismaPromise<any>[]>(arg: [...P], options?: { isolationLevel?: Prisma.TransactionIsolationLevel }): Promise<UnwrapTuple<P>>;
 
       /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
+   * `prisma.user`: Exposes CRUD operations for the **user** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Users
     * const users = await prisma.user.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<GlobalReject>;
+  get user(): Prisma.userDelegate<GlobalReject>;
 }
 
 export namespace Prisma {
@@ -656,7 +656,7 @@ export namespace Prisma {
   }
 
   export const ModelName: {
-    User: 'User'
+    user: 'user'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -821,7 +821,7 @@ export namespace Prisma {
    */
 
   /**
-   * Model User
+   * Model user
    */
 
 
@@ -890,42 +890,42 @@ export namespace Prisma {
 
   export type UserAggregateArgs = {
     /**
-     * Filter which User to aggregate.
+     * Filter which user to aggregate.
      * 
     **/
-    where?: UserWhereInput
+    where?: userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      * 
     **/
-    orderBy?: Enumerable<UserOrderByWithRelationInput>
+    orderBy?: Enumerable<userOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      * 
     **/
-    cursor?: UserWhereUniqueInput
+    cursor?: userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned users
     **/
     _count?: true | UserCountAggregateInputType
     /**
@@ -966,10 +966,10 @@ export namespace Prisma {
 
 
   export type UserGroupByArgs = {
-    where?: UserWhereInput
-    orderBy?: Enumerable<UserOrderByWithAggregationInput>
+    where?: userWhereInput
+    orderBy?: Enumerable<userOrderByWithAggregationInput>
     by: Array<UserScalarFieldEnum>
-    having?: UserScalarWhereWithAggregatesInput
+    having?: userScalarWhereWithAggregatesInput
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
@@ -1005,37 +1005,37 @@ export namespace Prisma {
     >
 
 
-  export type UserSelect = {
+  export type userSelect = {
     id?: boolean
     first_name?: boolean
     last_name?: boolean
   }
 
 
-  export type UserGetPayload<S extends boolean | null | undefined | UserArgs, U = keyof S> =
+  export type userGetPayload<S extends boolean | null | undefined | userArgs, U = keyof S> =
     S extends { select: any, include: any } ? 'Please either choose `select` or `include`' :
-    S extends true ? User :
+    S extends true ? user :
     S extends undefined ? never :
-    S extends { include: any } & (UserArgs | UserFindManyArgs)
-    ? User 
-    : S extends { select: any } & (UserArgs | UserFindManyArgs)
+    S extends { include: any } & (userArgs | userFindManyArgs)
+    ? user 
+    : S extends { select: any } & (userArgs | userFindManyArgs)
       ? {
     [P in TrueKeys<S['select']>]:
-    P extends keyof User ? User[P] : never
+    P extends keyof user ? user[P] : never
   } 
-      : User
+      : user
 
 
-  type UserCountArgs = Merge<
-    Omit<UserFindManyArgs, 'select' | 'include'> & {
+  type userCountArgs = Merge<
+    Omit<userFindManyArgs, 'select' | 'include'> & {
       select?: UserCountAggregateInputType | true
     }
   >
 
-  export interface UserDelegate<GlobalRejectSettings extends Prisma.RejectOnNotFound | Prisma.RejectPerOperation | false | undefined> {
+  export interface userDelegate<GlobalRejectSettings extends Prisma.RejectOnNotFound | Prisma.RejectPerOperation | false | undefined> {
     /**
      * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @param {userFindUniqueArgs} args - Arguments to find a User
      * @example
      * // Get one User
      * const user = await prisma.user.findUnique({
@@ -1044,15 +1044,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findUnique<T extends UserFindUniqueArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
-      args: SelectSubset<T, UserFindUniqueArgs>
-    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findUnique', 'User'> extends True ? Prisma__UserClient<UserGetPayload<T>> : Prisma__UserClient<UserGetPayload<T> | null, null>
+    findUnique<T extends userFindUniqueArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args: SelectSubset<T, userFindUniqueArgs>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findUnique', 'user'> extends True ? Prisma__userClient<userGetPayload<T>> : Prisma__userClient<userGetPayload<T> | null, null>
 
     /**
      * Find the first User that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {userFindFirstArgs} args - Arguments to find a User
      * @example
      * // Get one User
      * const user = await prisma.user.findFirst({
@@ -1061,15 +1061,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findFirst<T extends UserFindFirstArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
-      args?: SelectSubset<T, UserFindFirstArgs>
-    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'User'> extends True ? Prisma__UserClient<UserGetPayload<T>> : Prisma__UserClient<UserGetPayload<T> | null, null>
+    findFirst<T extends userFindFirstArgs,  LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args?: SelectSubset<T, userFindFirstArgs>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'user'> extends True ? Prisma__userClient<userGetPayload<T>> : Prisma__userClient<userGetPayload<T> | null, null>
 
     /**
      * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {userFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Users
      * const users = await prisma.user.findMany()
@@ -1081,13 +1081,13 @@ export namespace Prisma {
      * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends UserFindManyArgs>(
-      args?: SelectSubset<T, UserFindManyArgs>
-    ): PrismaPromise<Array<UserGetPayload<T>>>
+    findMany<T extends userFindManyArgs>(
+      args?: SelectSubset<T, userFindManyArgs>
+    ): PrismaPromise<Array<userGetPayload<T>>>
 
     /**
      * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @param {userCreateArgs} args - Arguments to create a User.
      * @example
      * // Create one User
      * const User = await prisma.user.create({
@@ -1097,13 +1097,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    create<T extends UserCreateArgs>(
-      args: SelectSubset<T, UserCreateArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    create<T extends userCreateArgs>(
+      args: SelectSubset<T, userCreateArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Create many Users.
-     *     @param {UserCreateManyArgs} args - Arguments to create many Users.
+     *     @param {userCreateManyArgs} args - Arguments to create many Users.
      *     @example
      *     // Create many Users
      *     const user = await prisma.user.createMany({
@@ -1113,13 +1113,13 @@ export namespace Prisma {
      *     })
      *     
     **/
-    createMany<T extends UserCreateManyArgs>(
-      args?: SelectSubset<T, UserCreateManyArgs>
+    createMany<T extends userCreateManyArgs>(
+      args?: SelectSubset<T, userCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
      * Delete a User.
-     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @param {userDeleteArgs} args - Arguments to delete one User.
      * @example
      * // Delete one User
      * const User = await prisma.user.delete({
@@ -1129,13 +1129,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    delete<T extends UserDeleteArgs>(
-      args: SelectSubset<T, UserDeleteArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    delete<T extends userDeleteArgs>(
+      args: SelectSubset<T, userDeleteArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Update one User.
-     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @param {userUpdateArgs} args - Arguments to update one User.
      * @example
      * // Update one User
      * const user = await prisma.user.update({
@@ -1148,13 +1148,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends UserUpdateArgs>(
-      args: SelectSubset<T, UserUpdateArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    update<T extends userUpdateArgs>(
+      args: SelectSubset<T, userUpdateArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @param {userDeleteManyArgs} args - Arguments to filter Users to delete.
      * @example
      * // Delete a few Users
      * const { count } = await prisma.user.deleteMany({
@@ -1164,15 +1164,15 @@ export namespace Prisma {
      * })
      * 
     **/
-    deleteMany<T extends UserDeleteManyArgs>(
-      args?: SelectSubset<T, UserDeleteManyArgs>
+    deleteMany<T extends userDeleteManyArgs>(
+      args?: SelectSubset<T, userDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {userUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Users
      * const user = await prisma.user.updateMany({
@@ -1185,13 +1185,13 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends UserUpdateManyArgs>(
-      args: SelectSubset<T, UserUpdateManyArgs>
+    updateMany<T extends userUpdateManyArgs>(
+      args: SelectSubset<T, userUpdateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
      * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @param {userUpsertArgs} args - Arguments to update or create a User.
      * @example
      * // Update or create a User
      * const user = await prisma.user.upsert({
@@ -1206,14 +1206,14 @@ export namespace Prisma {
      *   }
      * })
     **/
-    upsert<T extends UserUpsertArgs>(
-      args: SelectSubset<T, UserUpsertArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    upsert<T extends userUpsertArgs>(
+      args: SelectSubset<T, userUpsertArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Find one User that matches the filter or throw
      * `NotFoundError` if no matches were found.
-     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {userFindUniqueOrThrowArgs} args - Arguments to find a User
      * @example
      * // Get one User
      * const user = await prisma.user.findUniqueOrThrow({
@@ -1222,16 +1222,16 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(
-      args?: SelectSubset<T, UserFindUniqueOrThrowArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    findUniqueOrThrow<T extends userFindUniqueOrThrowArgs>(
+      args?: SelectSubset<T, userFindUniqueOrThrowArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Find the first User that matches the filter or
      * throw `NotFoundError` if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {userFindFirstOrThrowArgs} args - Arguments to find a User
      * @example
      * // Get one User
      * const user = await prisma.user.findFirstOrThrow({
@@ -1240,15 +1240,15 @@ export namespace Prisma {
      *   }
      * })
     **/
-    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(
-      args?: SelectSubset<T, UserFindFirstOrThrowArgs>
-    ): Prisma__UserClient<UserGetPayload<T>>
+    findFirstOrThrow<T extends userFindFirstOrThrowArgs>(
+      args?: SelectSubset<T, userFindFirstOrThrowArgs>
+    ): Prisma__userClient<userGetPayload<T>>
 
     /**
      * Count the number of Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {userCountArgs} args - Arguments to filter Users to count.
      * @example
      * // Count the number of Users
      * const count = await prisma.user.count({
@@ -1257,8 +1257,8 @@ export namespace Prisma {
      *   }
      * })
     **/
-    count<T extends UserCountArgs>(
-      args?: Subset<T, UserCountArgs>,
+    count<T extends userCountArgs>(
+      args?: Subset<T, userCountArgs>,
     ): PrismaPromise<
       T extends _Record<'select', any>
         ? T['select'] extends true
@@ -1373,12 +1373,12 @@ export namespace Prisma {
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for User.
+   * The delegate class that acts as a "Promise-like" for user.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export class Prisma__UserClient<T, Null = never> implements PrismaPromise<T> {
+  export class Prisma__userClient<T, Null = never> implements PrismaPromise<T> {
     [prisma]: true;
     private readonly _dmmf;
     private readonly _fetcher;
@@ -1424,25 +1424,25 @@ export namespace Prisma {
   // Custom InputTypes
 
   /**
-   * User base type for findUnique actions
+   * user base type for findUnique actions
    */
-  export type UserFindUniqueArgsBase = {
+  export type userFindUniqueArgsBase = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which user to fetch.
      * 
     **/
-    where: UserWhereUniqueInput
+    where: userWhereUniqueInput
   }
 
   /**
-   * User: findUnique
+   * user: findUnique
    */
-  export interface UserFindUniqueArgs extends UserFindUniqueArgsBase {
+  export interface userFindUniqueArgs extends userFindUniqueArgsBase {
    /**
     * Throw an Error if query returns no results
     * @deprecated since 4.0.0: use `findUniqueOrThrow` method instead
@@ -1452,60 +1452,60 @@ export namespace Prisma {
       
 
   /**
-   * User base type for findFirst actions
+   * user base type for findFirst actions
    */
-  export type UserFindFirstArgsBase = {
+  export type userFindFirstArgsBase = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which user to fetch.
      * 
     **/
-    where?: UserWhereInput
+    where?: userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      * 
     **/
-    orderBy?: Enumerable<UserOrderByWithRelationInput>
+    orderBy?: Enumerable<userOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for users.
      * 
     **/
-    cursor?: UserWhereUniqueInput
+    cursor?: userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of users.
      * 
     **/
     distinct?: Enumerable<UserScalarFieldEnum>
   }
 
   /**
-   * User: findFirst
+   * user: findFirst
    */
-  export interface UserFindFirstArgs extends UserFindFirstArgsBase {
+  export interface userFindFirstArgs extends userFindFirstArgsBase {
    /**
     * Throw an Error if query returns no results
     * @deprecated since 4.0.0: use `findFirstOrThrow` method instead
@@ -1515,44 +1515,44 @@ export namespace Prisma {
       
 
   /**
-   * User findMany
+   * user findMany
    */
-  export type UserFindManyArgs = {
+  export type userFindManyArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * Filter, which Users to fetch.
+     * Filter, which users to fetch.
      * 
     **/
-    where?: UserWhereInput
+    where?: userWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of users to fetch.
      * 
     **/
-    orderBy?: Enumerable<UserOrderByWithRelationInput>
+    orderBy?: Enumerable<userOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing users.
      * 
     **/
-    cursor?: UserWhereUniqueInput
+    cursor?: userWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` users from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` users.
      * 
     **/
     skip?: number
@@ -1561,151 +1561,151 @@ export namespace Prisma {
 
 
   /**
-   * User create
+   * user create
    */
-  export type UserCreateArgs = {
+  export type userCreateArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * The data needed to create a User.
+     * The data needed to create a user.
      * 
     **/
-    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<userCreateInput, userUncheckedCreateInput>
   }
 
 
   /**
-   * User createMany
+   * user createMany
    */
-  export type UserCreateManyArgs = {
+  export type userCreateManyArgs = {
     /**
-     * The data used to create many Users.
+     * The data used to create many users.
      * 
     **/
-    data: Enumerable<UserCreateManyInput>
+    data: Enumerable<userCreateManyInput>
     skipDuplicates?: boolean
   }
 
 
   /**
-   * User update
+   * user update
    */
-  export type UserUpdateArgs = {
+  export type userUpdateArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * The data needed to update a User.
+     * The data needed to update a user.
      * 
     **/
-    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    data: XOR<userUpdateInput, userUncheckedUpdateInput>
     /**
-     * Choose, which User to update.
+     * Choose, which user to update.
      * 
     **/
-    where: UserWhereUniqueInput
+    where: userWhereUniqueInput
   }
 
 
   /**
-   * User updateMany
+   * user updateMany
    */
-  export type UserUpdateManyArgs = {
+  export type userUpdateManyArgs = {
     /**
-     * The data used to update Users.
+     * The data used to update users.
      * 
     **/
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<userUpdateManyMutationInput, userUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which users to update
      * 
     **/
-    where?: UserWhereInput
+    where?: userWhereInput
   }
 
 
   /**
-   * User upsert
+   * user upsert
    */
-  export type UserUpsertArgs = {
+  export type userUpsertArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * The filter to search for the User to update in case it exists.
+     * The filter to search for the user to update in case it exists.
      * 
     **/
-    where: UserWhereUniqueInput
+    where: userWhereUniqueInput
     /**
-     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     * In case the user found by the `where` argument doesn't exist, create a new user with this data.
      * 
     **/
-    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    create: XOR<userCreateInput, userUncheckedCreateInput>
     /**
-     * In case the User was found with the provided `where` argument, update it with this data.
+     * In case the user was found with the provided `where` argument, update it with this data.
      * 
     **/
-    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    update: XOR<userUpdateInput, userUncheckedUpdateInput>
   }
 
 
   /**
-   * User delete
+   * user delete
    */
-  export type UserDeleteArgs = {
+  export type userDeleteArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
     /**
-     * Filter which User to delete.
+     * Filter which user to delete.
      * 
     **/
-    where: UserWhereUniqueInput
+    where: userWhereUniqueInput
   }
 
 
   /**
-   * User deleteMany
+   * user deleteMany
    */
-  export type UserDeleteManyArgs = {
+  export type userDeleteManyArgs = {
     /**
-     * Filter which Users to delete
+     * Filter which users to delete
      * 
     **/
-    where?: UserWhereInput
+    where?: userWhereInput
   }
 
 
   /**
-   * User: findUniqueOrThrow
+   * user: findUniqueOrThrow
    */
-  export type UserFindUniqueOrThrowArgs = UserFindUniqueArgsBase
+  export type userFindUniqueOrThrowArgs = userFindUniqueArgsBase
       
 
   /**
-   * User: findFirstOrThrow
+   * user: findFirstOrThrow
    */
-  export type UserFindFirstOrThrowArgs = UserFindFirstArgsBase
+  export type userFindFirstOrThrowArgs = userFindFirstArgsBase
       
 
   /**
-   * User without action
+   * user without action
    */
-  export type UserArgs = {
+  export type userArgs = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the user
      * 
     **/
-    select?: UserSelect | null
+    select?: userSelect | null
   }
 
 
@@ -1757,79 +1757,79 @@ export namespace Prisma {
    */
 
 
-  export type UserWhereInput = {
-    AND?: Enumerable<UserWhereInput>
-    OR?: Enumerable<UserWhereInput>
-    NOT?: Enumerable<UserWhereInput>
+  export type userWhereInput = {
+    AND?: Enumerable<userWhereInput>
+    OR?: Enumerable<userWhereInput>
+    NOT?: Enumerable<userWhereInput>
     id?: IntFilter | number
     first_name?: StringFilter | string
     last_name?: StringFilter | string
   }
 
-  export type UserOrderByWithRelationInput = {
+  export type userOrderByWithRelationInput = {
     id?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
   }
 
-  export type UserWhereUniqueInput = {
+  export type userWhereUniqueInput = {
     id?: number
   }
 
-  export type UserOrderByWithAggregationInput = {
+  export type userOrderByWithAggregationInput = {
     id?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
-    _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
-    _max?: UserMaxOrderByAggregateInput
-    _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
+    _count?: userCountOrderByAggregateInput
+    _avg?: userAvgOrderByAggregateInput
+    _max?: userMaxOrderByAggregateInput
+    _min?: userMinOrderByAggregateInput
+    _sum?: userSumOrderByAggregateInput
   }
 
-  export type UserScalarWhereWithAggregatesInput = {
-    AND?: Enumerable<UserScalarWhereWithAggregatesInput>
-    OR?: Enumerable<UserScalarWhereWithAggregatesInput>
-    NOT?: Enumerable<UserScalarWhereWithAggregatesInput>
+  export type userScalarWhereWithAggregatesInput = {
+    AND?: Enumerable<userScalarWhereWithAggregatesInput>
+    OR?: Enumerable<userScalarWhereWithAggregatesInput>
+    NOT?: Enumerable<userScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
     first_name?: StringWithAggregatesFilter | string
     last_name?: StringWithAggregatesFilter | string
   }
 
-  export type UserCreateInput = {
+  export type userCreateInput = {
     first_name: string
     last_name: string
   }
 
-  export type UserUncheckedCreateInput = {
+  export type userUncheckedCreateInput = {
     id?: number
     first_name: string
     last_name: string
   }
 
-  export type UserUpdateInput = {
+  export type userUpdateInput = {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserUncheckedUpdateInput = {
+  export type userUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserCreateManyInput = {
+  export type userCreateManyInput = {
     id?: number
     first_name: string
     last_name: string
   }
 
-  export type UserUpdateManyMutationInput = {
+  export type userUpdateManyMutationInput = {
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserUncheckedUpdateManyInput = {
+  export type userUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
@@ -1861,29 +1861,29 @@ export namespace Prisma {
     not?: NestedStringFilter | string
   }
 
-  export type UserCountOrderByAggregateInput = {
+  export type userCountOrderByAggregateInput = {
     id?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
   }
 
-  export type UserAvgOrderByAggregateInput = {
+  export type userAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    first_name?: SortOrder
-    last_name?: SortOrder
-  }
-
-  export type UserMinOrderByAggregateInput = {
+  export type userMaxOrderByAggregateInput = {
     id?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
   }
 
-  export type UserSumOrderByAggregateInput = {
+  export type userMinOrderByAggregateInput = {
+    id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+  }
+
+  export type userSumOrderByAggregateInput = {
     id?: SortOrder
   }
 

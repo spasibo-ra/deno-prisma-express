@@ -114,7 +114,7 @@ exports.Prisma.UserScalarFieldEnum = makeEnum({
 
 
 exports.Prisma.ModelName = makeEnum({
-  User: 'User'
+  user: 'user'
 });
 
 /**
