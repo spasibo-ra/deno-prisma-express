@@ -96,6 +96,11 @@ exports.Prisma.PostScalarFieldEnum = makeEnum({
   authorId: 'authorId'
 });
 
+exports.Prisma.QueryMode = makeEnum({
+  default: 'default',
+  insensitive: 'insensitive'
+});
+
 exports.Prisma.SortOrder = makeEnum({
   asc: 'asc',
   desc: 'desc'
@@ -110,7 +115,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.UserScalarFieldEnum = makeEnum({
   id: 'id',
-  name: 'name'
+  name: 'name',
+  last_name: 'last_name'
 });
 
 

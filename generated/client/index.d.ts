@@ -19,6 +19,7 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
 export type User = {
   id: number
   name: string
+  last_name: string
 }
 
 /**
@@ -836,49 +837,6 @@ export namespace Prisma {
    */
 
 
-  /**
-   * Count Type UserCountOutputType
-   */
-
-
-  export type UserCountOutputType = {
-    posts: number
-  }
-
-  export type UserCountOutputTypeSelect = {
-    posts?: boolean
-  }
-
-  export type UserCountOutputTypeGetPayload<S extends boolean | null | undefined | UserCountOutputTypeArgs, U = keyof S> =
-    S extends { select: any, include: any } ? 'Please either choose `select` or `include`' :
-    S extends true ? UserCountOutputType :
-    S extends undefined ? never :
-    S extends { include: any } & (UserCountOutputTypeArgs)
-    ? UserCountOutputType 
-    : S extends { select: any } & (UserCountOutputTypeArgs)
-      ? {
-    [P in TrueKeys<S['select']>]:
-    P extends keyof UserCountOutputType ? UserCountOutputType[P] : never
-  } 
-      : UserCountOutputType
-
-
-
-
-  // Custom InputTypes
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeArgs = {
-    /**
-     * Select specific fields to fetch from the UserCountOutputType
-     * 
-    **/
-    select?: UserCountOutputTypeSelect | null
-  }
-
-
 
   /**
    * Models
@@ -908,16 +866,19 @@ export namespace Prisma {
   export type UserMinAggregateOutputType = {
     id: number | null
     name: string | null
+    last_name: string | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    last_name: string | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     name: number
+    last_name: number
     _all: number
   }
 
@@ -933,16 +894,19 @@ export namespace Prisma {
   export type UserMinAggregateInputType = {
     id?: true
     name?: true
+    last_name?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     name?: true
+    last_name?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     name?: true
+    last_name?: true
     _all?: true
   }
 
@@ -1041,6 +1005,7 @@ export namespace Prisma {
   export type UserGroupByOutputType = {
     id: number
     name: string
+    last_name: string
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1065,31 +1030,20 @@ export namespace Prisma {
   export type UserSelect = {
     id?: boolean
     name?: boolean
-    posts?: boolean | PostFindManyArgs
-    _count?: boolean | UserCountOutputTypeArgs
+    last_name?: boolean
   }
 
-
-  export type UserInclude = {
-    posts?: boolean | PostFindManyArgs
-    _count?: boolean | UserCountOutputTypeArgs
-  } 
 
   export type UserGetPayload<S extends boolean | null | undefined | UserArgs, U = keyof S> =
     S extends { select: any, include: any } ? 'Please either choose `select` or `include`' :
     S extends true ? User :
     S extends undefined ? never :
     S extends { include: any } & (UserArgs | UserFindManyArgs)
-    ? User  & {
-    [P in TrueKeys<S['include']>]:
-        P extends 'posts' ? Array < PostGetPayload<Exclude<S['include'], undefined | null>[P]>>  :
-        P extends '_count' ? UserCountOutputTypeGetPayload<Exclude<S['include'], undefined | null>[P]> :  never
-  } 
+    ? User 
     : S extends { select: any } & (UserArgs | UserFindManyArgs)
       ? {
     [P in TrueKeys<S['select']>]:
-        P extends 'posts' ? Array < PostGetPayload<Exclude<S['select'], undefined | null>[P]>>  :
-        P extends '_count' ? UserCountOutputTypeGetPayload<Exclude<S['select'], undefined | null>[P]> :  P extends keyof User ? User[P] : never
+    P extends keyof User ? User[P] : never
   } 
       : User
 
@@ -1463,7 +1417,6 @@ export namespace Prisma {
     constructor(_dmmf: runtime.DMMFClass, _fetcher: PrismaClientFetcher, _queryType: 'query' | 'mutation', _rootField: string, _clientMethod: string, _args: any, _dataPath: string[], _errorFormat: ErrorFormat, _measurePerformance?: boolean | undefined, _isList?: boolean);
     readonly [Symbol.toStringTag]: 'PrismaClientPromise';
 
-    posts<T extends PostFindManyArgs= {}>(args?: Subset<T, PostFindManyArgs>): PrismaPromise<Array<PostGetPayload<T>>| Null>;
 
     private get _document();
     /**
@@ -1502,11 +1455,6 @@ export namespace Prisma {
     **/
     select?: UserSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
-    /**
      * Filter, which User to fetch.
      * 
     **/
@@ -1534,11 +1482,6 @@ export namespace Prisma {
      * 
     **/
     select?: UserSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
     /**
      * Filter, which User to fetch.
      * 
@@ -1603,11 +1546,6 @@ export namespace Prisma {
     **/
     select?: UserSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
-    /**
      * Filter, which Users to fetch.
      * 
     **/
@@ -1654,11 +1592,6 @@ export namespace Prisma {
     **/
     select?: UserSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
-    /**
      * The data needed to create a User.
      * 
     **/
@@ -1688,11 +1621,6 @@ export namespace Prisma {
      * 
     **/
     select?: UserSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
     /**
      * The data needed to update a User.
      * 
@@ -1733,11 +1661,6 @@ export namespace Prisma {
     **/
     select?: UserSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
-    /**
      * The filter to search for the User to update in case it exists.
      * 
     **/
@@ -1764,11 +1687,6 @@ export namespace Prisma {
      * 
     **/
     select?: UserSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
     /**
      * Filter which User to delete.
      * 
@@ -1810,11 +1728,6 @@ export namespace Prisma {
      * 
     **/
     select?: UserSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: UserInclude | null
   }
 
 
@@ -2020,27 +1933,19 @@ export namespace Prisma {
     title?: boolean
     published?: boolean
     authorId?: boolean
-    author?: boolean | UserArgs
   }
 
-
-  export type PostInclude = {
-    author?: boolean | UserArgs
-  } 
 
   export type PostGetPayload<S extends boolean | null | undefined | PostArgs, U = keyof S> =
     S extends { select: any, include: any } ? 'Please either choose `select` or `include`' :
     S extends true ? Post :
     S extends undefined ? never :
     S extends { include: any } & (PostArgs | PostFindManyArgs)
-    ? Post  & {
-    [P in TrueKeys<S['include']>]:
-        P extends 'author' ? UserGetPayload<Exclude<S['include'], undefined | null>[P]> :  never
-  } 
+    ? Post 
     : S extends { select: any } & (PostArgs | PostFindManyArgs)
       ? {
     [P in TrueKeys<S['select']>]:
-        P extends 'author' ? UserGetPayload<Exclude<S['select'], undefined | null>[P]> :  P extends keyof Post ? Post[P] : never
+    P extends keyof Post ? Post[P] : never
   } 
       : Post
 
@@ -2414,7 +2319,6 @@ export namespace Prisma {
     constructor(_dmmf: runtime.DMMFClass, _fetcher: PrismaClientFetcher, _queryType: 'query' | 'mutation', _rootField: string, _clientMethod: string, _args: any, _dataPath: string[], _errorFormat: ErrorFormat, _measurePerformance?: boolean | undefined, _isList?: boolean);
     readonly [Symbol.toStringTag]: 'PrismaClientPromise';
 
-    author<T extends UserArgs= {}>(args?: Subset<T, UserArgs>): Prisma__UserClient<UserGetPayload<T> | Null>;
 
     private get _document();
     /**
@@ -2453,11 +2357,6 @@ export namespace Prisma {
     **/
     select?: PostSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
-    /**
      * Filter, which Post to fetch.
      * 
     **/
@@ -2485,11 +2384,6 @@ export namespace Prisma {
      * 
     **/
     select?: PostSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
     /**
      * Filter, which Post to fetch.
      * 
@@ -2554,11 +2448,6 @@ export namespace Prisma {
     **/
     select?: PostSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
-    /**
      * Filter, which Posts to fetch.
      * 
     **/
@@ -2605,11 +2494,6 @@ export namespace Prisma {
     **/
     select?: PostSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
-    /**
      * The data needed to create a Post.
      * 
     **/
@@ -2639,11 +2523,6 @@ export namespace Prisma {
      * 
     **/
     select?: PostSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
     /**
      * The data needed to update a Post.
      * 
@@ -2684,11 +2563,6 @@ export namespace Prisma {
     **/
     select?: PostSelect | null
     /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
-    /**
      * The filter to search for the Post to update in case it exists.
      * 
     **/
@@ -2715,11 +2589,6 @@ export namespace Prisma {
      * 
     **/
     select?: PostSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
     /**
      * Filter which Post to delete.
      * 
@@ -2761,11 +2630,6 @@ export namespace Prisma {
      * 
     **/
     select?: PostSelect | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     * 
-    **/
-    include?: PostInclude | null
   }
 
 
@@ -2785,6 +2649,14 @@ export namespace Prisma {
   };
 
   export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   export const SortOrder: {
@@ -2807,7 +2679,8 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    last_name: 'last_name'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -2824,13 +2697,13 @@ export namespace Prisma {
     NOT?: Enumerable<UserWhereInput>
     id?: IntFilter | number
     name?: StringFilter | string
-    posts?: PostListRelationFilter
+    last_name?: StringFilter | string
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    posts?: PostOrderByRelationAggregateInput
+    last_name?: SortOrder
   }
 
   export type UserWhereUniqueInput = {
@@ -2840,6 +2713,7 @@ export namespace Prisma {
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    last_name?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -2853,6 +2727,7 @@ export namespace Prisma {
     NOT?: Enumerable<UserScalarWhereWithAggregatesInput>
     id?: IntWithAggregatesFilter | number
     name?: StringWithAggregatesFilter | string
+    last_name?: StringWithAggregatesFilter | string
   }
 
   export type PostWhereInput = {
@@ -2863,7 +2738,6 @@ export namespace Prisma {
     title?: StringFilter | string
     published?: BoolFilter | boolean
     authorId?: IntFilter | number
-    author?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type PostOrderByWithRelationInput = {
@@ -2871,7 +2745,6 @@ export namespace Prisma {
     title?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
-    author?: UserOrderByWithRelationInput
   }
 
   export type PostWhereUniqueInput = {
@@ -2902,44 +2775,47 @@ export namespace Prisma {
 
   export type UserCreateInput = {
     name: string
-    posts?: PostCreateNestedManyWithoutAuthorInput
+    last_name: string
   }
 
   export type UserUncheckedCreateInput = {
     id?: number
     name: string
-    posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    last_name: string
   }
 
   export type UserUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    posts?: PostUpdateManyWithoutAuthorNestedInput
+    last_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    last_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserCreateManyInput = {
     id?: number
     name: string
+    last_name: string
   }
 
   export type UserUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
   }
 
   export type PostCreateInput = {
     title: string
     published?: boolean
-    author: UserCreateNestedOneWithoutPostsInput
+    authorId: number
   }
 
   export type PostUncheckedCreateInput = {
@@ -2952,7 +2828,7 @@ export namespace Prisma {
   export type PostUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
-    author?: UserUpdateOneRequiredWithoutPostsNestedInput
+    authorId?: IntFieldUpdateOperationsInput | number
   }
 
   export type PostUncheckedUpdateInput = {
@@ -2972,6 +2848,7 @@ export namespace Prisma {
   export type PostUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
+    authorId?: IntFieldUpdateOperationsInput | number
   }
 
   export type PostUncheckedUpdateManyInput = {
@@ -3003,22 +2880,14 @@ export namespace Prisma {
     contains?: string
     startsWith?: string
     endsWith?: string
+    mode?: QueryMode
     not?: NestedStringFilter | string
-  }
-
-  export type PostListRelationFilter = {
-    every?: PostWhereInput
-    some?: PostWhereInput
-    none?: PostWhereInput
-  }
-
-  export type PostOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    last_name?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -3028,11 +2897,13 @@ export namespace Prisma {
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    last_name?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    last_name?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -3066,6 +2937,7 @@ export namespace Prisma {
     contains?: string
     startsWith?: string
     endsWith?: string
+    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter | string
     _count?: NestedIntFilter
     _min?: NestedStringFilter
@@ -3075,11 +2947,6 @@ export namespace Prisma {
   export type BoolFilter = {
     equals?: boolean
     not?: NestedBoolFilter | boolean
-  }
-
-  export type UserRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
   }
 
   export type PostCountOrderByAggregateInput = {
@@ -3121,36 +2988,8 @@ export namespace Prisma {
     _max?: NestedBoolFilter
   }
 
-  export type PostCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<Enumerable<PostCreateWithoutAuthorInput>, Enumerable<PostUncheckedCreateWithoutAuthorInput>>
-    connectOrCreate?: Enumerable<PostCreateOrConnectWithoutAuthorInput>
-    createMany?: PostCreateManyAuthorInputEnvelope
-    connect?: Enumerable<PostWhereUniqueInput>
-  }
-
-  export type PostUncheckedCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<Enumerable<PostCreateWithoutAuthorInput>, Enumerable<PostUncheckedCreateWithoutAuthorInput>>
-    connectOrCreate?: Enumerable<PostCreateOrConnectWithoutAuthorInput>
-    createMany?: PostCreateManyAuthorInputEnvelope
-    connect?: Enumerable<PostWhereUniqueInput>
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type PostUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<Enumerable<PostCreateWithoutAuthorInput>, Enumerable<PostUncheckedCreateWithoutAuthorInput>>
-    connectOrCreate?: Enumerable<PostCreateOrConnectWithoutAuthorInput>
-    upsert?: Enumerable<PostUpsertWithWhereUniqueWithoutAuthorInput>
-    createMany?: PostCreateManyAuthorInputEnvelope
-    set?: Enumerable<PostWhereUniqueInput>
-    disconnect?: Enumerable<PostWhereUniqueInput>
-    delete?: Enumerable<PostWhereUniqueInput>
-    connect?: Enumerable<PostWhereUniqueInput>
-    update?: Enumerable<PostUpdateWithWhereUniqueWithoutAuthorInput>
-    updateMany?: Enumerable<PostUpdateManyWithWhereWithoutAuthorInput>
-    deleteMany?: Enumerable<PostScalarWhereInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -3161,36 +3000,8 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type PostUncheckedUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<Enumerable<PostCreateWithoutAuthorInput>, Enumerable<PostUncheckedCreateWithoutAuthorInput>>
-    connectOrCreate?: Enumerable<PostCreateOrConnectWithoutAuthorInput>
-    upsert?: Enumerable<PostUpsertWithWhereUniqueWithoutAuthorInput>
-    createMany?: PostCreateManyAuthorInputEnvelope
-    set?: Enumerable<PostWhereUniqueInput>
-    disconnect?: Enumerable<PostWhereUniqueInput>
-    delete?: Enumerable<PostWhereUniqueInput>
-    connect?: Enumerable<PostWhereUniqueInput>
-    update?: Enumerable<PostUpdateWithWhereUniqueWithoutAuthorInput>
-    updateMany?: Enumerable<PostUpdateManyWithWhereWithoutAuthorInput>
-    deleteMany?: Enumerable<PostScalarWhereInput>
-  }
-
-  export type UserCreateNestedOneWithoutPostsInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
-  }
-
-  export type UserUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    upsert?: UserUpsertWithoutPostsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
   }
 
   export type NestedIntFilter = {
@@ -3273,104 +3084,6 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedBoolFilter
     _max?: NestedBoolFilter
-  }
-
-  export type PostCreateWithoutAuthorInput = {
-    title: string
-    published?: boolean
-  }
-
-  export type PostUncheckedCreateWithoutAuthorInput = {
-    id?: number
-    title: string
-    published?: boolean
-  }
-
-  export type PostCreateOrConnectWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput>
-  }
-
-  export type PostCreateManyAuthorInputEnvelope = {
-    data: Enumerable<PostCreateManyAuthorInput>
-    skipDuplicates?: boolean
-  }
-
-  export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    update: XOR<PostUpdateWithoutAuthorInput, PostUncheckedUpdateWithoutAuthorInput>
-    create: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput>
-  }
-
-  export type PostUpdateWithWhereUniqueWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    data: XOR<PostUpdateWithoutAuthorInput, PostUncheckedUpdateWithoutAuthorInput>
-  }
-
-  export type PostUpdateManyWithWhereWithoutAuthorInput = {
-    where: PostScalarWhereInput
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyWithoutPostsInput>
-  }
-
-  export type PostScalarWhereInput = {
-    AND?: Enumerable<PostScalarWhereInput>
-    OR?: Enumerable<PostScalarWhereInput>
-    NOT?: Enumerable<PostScalarWhereInput>
-    id?: IntFilter | number
-    title?: StringFilter | string
-    published?: BoolFilter | boolean
-    authorId?: IntFilter | number
-  }
-
-  export type UserCreateWithoutPostsInput = {
-    name: string
-  }
-
-  export type UserUncheckedCreateWithoutPostsInput = {
-    id?: number
-    name: string
-  }
-
-  export type UserCreateOrConnectWithoutPostsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-  }
-
-  export type UserUpsertWithoutPostsInput = {
-    update: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-  }
-
-  export type UserUpdateWithoutPostsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UserUncheckedUpdateWithoutPostsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type PostCreateManyAuthorInput = {
-    id?: number
-    title: string
-    published?: boolean
-  }
-
-  export type PostUpdateWithoutAuthorInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    published?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type PostUncheckedUpdateWithoutAuthorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    published?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type PostUncheckedUpdateManyWithoutPostsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    published?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

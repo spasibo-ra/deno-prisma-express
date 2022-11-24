@@ -3,18 +3,19 @@
 
 generator client {
   provider = "prisma-client-js"
-  output = "../generated/client"
+  output          = "../generated/client"
+  previewFeatures = ["deno"]
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  posts Post[]
+  id        Int    @id @default(autoincrement())
+  name      String
+  last_name String
 }
 
 model Post {
@@ -22,5 +23,4 @@ model Post {
   title     String
   published Boolean @default(true)
   authorId  Int
-  author    User    @relation(fields: [authorId], references: [id])
 }
