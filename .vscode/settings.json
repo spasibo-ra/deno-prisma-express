@@ -1,4 +1,4 @@
-пше {
+{
     "deno.enable": true,
     "deno.unstable": false,
     "editor.defaultFormatter": "denoland.vscode-deno"

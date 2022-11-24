@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output          = "../generated/client"
+  output   = "../generated/client"
   previewFeatures = ["deno"]
 }
 
@@ -13,14 +13,7 @@ datasource db {
 }
 
 model User {
-  id        Int    @id @default(autoincrement())
-  name      String
-  last_name String
-}
-
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  published Boolean @default(true)
-  authorId  Int
+  id          Int     @id @default(autoincrement())
+  first_name  String
+  last_name   String
 }
